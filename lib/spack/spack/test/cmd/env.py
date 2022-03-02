@@ -2908,6 +2908,10 @@ def test_read_legacy_lockfile_and_reconcretize(mock_stage, mock_fetch, install_m
 
     assert len(expected_dtbuild1_versions) == 0
 
+    expected_versions = set([Version('0.5'), Version('1.0')])
+    current_versions = set(s['dtbuild1'].version for s in test.specs_by_hash.values())
+    assert current_versions == expected_versions
+
 
 def test_environment_depfile_makefile(tmpdir, mock_packages):
     env('create', 'test')
