@@ -885,8 +885,17 @@ build(Package) :- not hash(Package, _), node(Package).
 %   200+        Shifted priorities for build nodes; correspond to priorities 0 - 99.
 %   100 - 199   Unshifted priorities. Currently only includes minimizing #builds.
 %   0   -  99   Priorities for non-built nodes.
-build_priority(Package, 200) :- build(Package), node(Package).
-build_priority(Package, 0)   :- not build(Package), node(Package).
+build_priority(Package, 200) :- build(Package), node(Package), optimize_for_reuse().
+build_priority(Package, 0)   :- not build(Package), node(Package), optimize_for_reuse().
+
+% don't adjust build priorities if reuse is not enabled
+build_priority(Package, 0)   :- node(Package), not optimize_for_reuse().
+
+% don't assign versions from installed packages unless reuse is enabled
+:- version(Package, Version),
+   version_weight(Package, Weight),
+   version_declared(Package, Version, Weight, "installed"),
+   not optimize_for_reuse().
 
 #defined installed_hash/2.
 
