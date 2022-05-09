@@ -36,7 +36,7 @@ jobs:
       - name: Setup non-root user
         run: |
           # See [1] below
-          # git config --global --add safe.directory /__w/spack/spack
+          git config --global --add safe.directory /__w/spack/spack
           useradd spack-test && mkdir -p ~spack-test
           chown -R spack-test . ~spack-test
       - name: Setup repo
@@ -72,7 +72,7 @@ jobs:
       - name: Setup non-root user
         run: |
           # See [1] below
-          # git config --global --add safe.directory /__w/spack/spack
+          git config --global --add safe.directory /__w/spack/spack
           useradd spack-test && mkdir -p ~spack-test
           chown -R spack-test . ~spack-test
       - name: Setup repo
@@ -107,7 +107,7 @@ jobs:
       - name: Setup non-root user
         run: |
           # See [1] below
-          # git config --global --add safe.directory /__w/spack/spack
+          git config --global --add safe.directory /__w/spack/spack
           useradd spack-test && mkdir -p ~spack-test
           chown -R spack-test . ~spack-test
       - name: Setup repo
@@ -140,7 +140,7 @@ jobs:
       - name: Setup repo
         run: |
           # See [1] below
-          # git config --global --add safe.directory /__w/spack/spack
+          git config --global --add safe.directory /__w/spack/spack
           git --version
           git fetch --unshallow
           . .github/workflows/setup_git.sh
@@ -230,7 +230,7 @@ jobs:
       - name: Setup non-root user
         run: |
           # See [1] below
-          # git config --global --add safe.directory /__w/spack/spack
+          git config --global --add safe.directory /__w/spack/spack
           useradd spack-test && mkdir -p ~spack-test
           chown -R spack-test . ~spack-test
       - name: Setup repo
@@ -265,7 +265,7 @@ jobs:
       - name: Setup non-root user
         run: |
           # See [1] below
-          # git config --global --add safe.directory /__w/spack/spack
+          git config --global --add safe.directory /__w/spack/spack
           useradd spack-test && mkdir -p ~spack-test
           chown -R spack-test . ~spack-test
       - name: Setup repo
